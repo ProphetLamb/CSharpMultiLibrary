@@ -22,16 +22,10 @@ install:
 configuration:
   - Debug
 
-version: "0.1.{build}"
-
 dotnet_csproj:
   patch: true
   file: 'src\**\+++PROJECT.*.csproj'
-  version: "{version}"
-  package_version: "{version}"
-  assembly_version: "{version}"
-  file_version: "{version}"
-  informational_version: "{version}"
+  version_suffix: "{branch}-{build}"
 
 before_build:
   - dotnet restore -verbosity:q

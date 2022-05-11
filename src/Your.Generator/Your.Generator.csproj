@@ -9,20 +9,25 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Assembly Info">
-    <AssemblyName>Your.SourceGenerator</AssemblyName>
-    <AssemblyTitle>Your.SourceGenerator</AssemblyTitle>
-    <PackageId>Your.SourceGenerator</PackageId>
-    <Title>Your.SourceGenerator</Title>
-    <Description>This is about my source generator</Description>
-    <PackageTags>csharp,library,sourcegenerator</PackageTags>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+
+    <Product>+++Your.Generator</Product>
+    <PackageId>$(Product)</PackageId>
+    <Title>$(Product)</Title>
+
+    <Description>+++This is about my source generator</Description>
+    <PackageTags>+++Your;Tags</PackageTags>
+
+    <AssemblyName>$(Product)</AssemblyName>
+    <AssemblyTitle>$(Product) $(TargetFramework)</AssemblyTitle>
+    <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <!--Dependencies are pretty much bricked, so we manually link required files.-->
-    <Compile Include="$(ProjectDir)\..\Rustic.Source\SynModel.cs" Link="SynModel.cs" />
-    <Compile Include="$(ProjectDir)\..\Rustic.Source\SrcBuilder.cs" Link="SrcBuilder.cs" />
-    <Compile Include="$(ProjectDir)\..\Rustic.Source\SyntaxExtensions.cs" Link="SyntaxExtensions.cs" />
+    <Compile Include="$(ProjectDir)\..\External\Class.cs" Link="Class.cs" />
   </ItemGroup>
 
   <ItemGroup>
