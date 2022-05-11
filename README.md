@@ -22,6 +22,8 @@ This is my best effort at creating a template for solutions that contain multipl
 4. Replace [variables](#variables) with your specific information
 5. Confirm your code-style in the `.editorconfig`
 
+Lastly replace this `README.md` with your own.
+
 ### Source projects
 
 Add a project in `src/` with `dotnet new classlib -n "+++YOU.Project"` and define the missing nuget and assembly information. `AssemblyName` & `PackageId` can be inferred automatically.
@@ -71,6 +73,15 @@ Contains the release notes. Realeises are usually separated by `---`. The file i
 This template uses `Directory.Build.props` to reduce the redundancy in `.csproj` project files. There are distinct `props` for both `src/` and `tests/` where assembly & [nuget](nuget.org) information is defined, as well as common packages are included.
 
 This allows new projects to be added using the [dotnet cli](https://docs.microsoft.com/en-us/dotnet/core/tools/) with minimal manual intervention.
+
+To change the license to a file based change this line
+```xml
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+```
+to
+```xml
+    <PackageLicenseFile>../../LICENSE-MIT</PackageLicenseFile>
+```
 
 ### Scripts
 
