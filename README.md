@@ -14,6 +14,8 @@ This is my best effort at creating a template for solutions that contain multipl
 
 ## Getting started
 
+Setting up your project in 10 minutes max.
+
 ### Setup environment
 
 1. Create a [GitHub](https://github.com) repository and clone it
@@ -71,6 +73,8 @@ This template uses `Directory.Build.props` to reduce the redundancy in `.csproj`
 
 This allows new projects to be added using the [dotnet cli](https://docs.microsoft.com/en-us/dotnet/core/tools/) with minimal manual intervention.
 
+#### License
+
 To change the license to a file based change this line
 ```xml
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -105,3 +109,9 @@ The [EditorConfig](https://editorconfig.org) is a bit opinionated, so you might 
 Take a look at the [example project](src/Your.Project/Your.Project.csproj) and [source generator example](src/Your.Generator/Your.Generator.csproj).
 
 Tags from the [Directory.Build.props](src/Directory.Build.props) are included in every `.csproj` in sub-directories. Duplicates are overwritten.
+
+Documentation on the `.csproj` Format
+- [Target Frameworks](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
+- [MSBuild Props](https://docs.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022)
+- [MSBuild Tasks](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-task-reference?view=vs-2022)
+- [Nuget Props](https://docs.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#nuget-metadata-properties)
