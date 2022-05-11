@@ -24,32 +24,6 @@ This is my best effort at creating a template for solutions that contain multipl
 
 Lastly replace this `README.md` with your own.
 
-### Source projects
-
-Add a project in `src/` with `dotnet new classlib -n "+++YOU.Project"` and define the missing nuget and assembly information. `AssemblyName` & `PackageId` can be inferred automatically.
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net48;net50;net60</TargetFrameworks>
-    <RootNamespace>+++YOU</RootNamespace>
-  </PropertyGroup>
-
-  <PropertyGroup Label="Assembly Info">
-    <AssemblyName>+++YOU.Project</AssemblyName>
-    <AssemblyTitle>+++YOU.Project</AssemblyTitle>
-    <PackageId>+++YOU.Project</PackageId>
-    <Title>+++YOU.Project</Title>
-    <Description>This is about my project</Description>
-    <PackageTags>csharp,library</PackageTags>
-  </PropertyGroup>
-</Project>
-```
-
-### Test projects
-
-Add a test project in `tests/` with `dotnet new nunit -n "+++YOU.Project.Tests"`.
-
 ### Variables
 
 There are a few variables denoted by the `+++` prefix. Search all project files for this prefix.
@@ -61,6 +35,28 @@ The following files contain variables `appveyor.yml`, `src/AssemblyInfo.cs` & `s
 | +++PROJECT | The root name of your project. e.g. `Microsoft` or `System` |
 | +++YOU     | The GitHub name of the owner of the project                 |
 | +++VALUE   | Some specific value explained in the following comment      |
+
+### Solution & Projects
+
+First add a solution in the repository root with
+```ps
+dotnet new sln -n "Your"
+```
+
+Add a project in `src/` with
+
+```ps
+dotnet new classlib -n "Your.Project"
+```
+and define the missing nuget and assembly information, see [more on project files](#csproj).
+
+### Test projects
+
+Add a test project in `tests/` with
+```ps
+dotnet new nunit -n "Your
+.Project.Tests"
+```
 
 ## Files
 
@@ -98,3 +94,11 @@ The gitignore is created by [topal gitignore](https://www.toptal.com/developers/
 ### `.editorconfig`
 
 The [EditorConfig](https://editorconfig.org) is a bit opinionated, so you might want to change some things. There is plugin support for all moderns IDEs and VIM.
+
+### `.csproj`
+
+- Required are `TargetFrameworks`., `AssemblyName`, `Descriptions` & `PackageTags`.
+- `AssemblyTitle`, `PackageId` and `Title` can be inferred automatically by `AssemblyName`.
+- `RootNamespace` by default is equal to the project file name, only define it if the namespace is different.
+
+Take a look at the [example project](src/Your.Project/Your.Project.csproj) and [source generator example](src/Your.Generator/Your.Generator.csproj).

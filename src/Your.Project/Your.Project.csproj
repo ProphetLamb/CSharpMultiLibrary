@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard20;netstandard21;net48;net50;net60</TargetFrameworks>
+    <RootNamespace>Your</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Assembly Info">
+    <AssemblyName>Your.Project</AssemblyName>
+    <Description>This is about my project</Description>
+    <PackageTags>csharp,library</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup Condition="!$(DefineConstants.Contains('NET5_0_OR_GREATER'))">
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+  </ItemGroup>
+</Project>
