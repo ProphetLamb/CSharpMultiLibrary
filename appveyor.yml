@@ -17,7 +17,7 @@ cache:
   - '%UserProfile%\.dotnet\tools -> appveyor.yml'
 
 install:
-  - ps: ./tooling.ps1
+  - ps: ./scripts/tooling.ps1
 
 configuration:
   - Debug
@@ -38,7 +38,7 @@ after_build:
   - ps: dotnet pack --no-restore --no-build -verbosity:q --configuration $Env:CONFIGURATION
 
 test_script:
-  - ps: ./test.ps1
+  - ps: ./scripts/test.ps1
 
 artifacts:
   - path: 'src\**\+++PROJECT.*.nupkg'
@@ -49,7 +49,7 @@ deploy:
       secure: +++VALUE # FROM https://www.nuget.org/account/apikeys ENCRYPT WITH https://ci.appveyor.com/tools/encrypt
     artifact: /.*(\.|\.s)nupkg/
     on:
-      branch: /release/
+      branch: /^release/
   - provider: NuGet # Github packages
     server: https://nuget.pkg.github.com/+++YOUindex.json
     artifact: /.*\.nupkg/
@@ -58,12 +58,12 @@ deploy:
     api_key:
       secure: +++VALUE # FROM https://github.com/settings/tokens ENCRYPT WITH https://ci.appveyor.com/tools/encrypt
     on:
-      branch: /release/
+      branch: /^release/
 
 for:
   - branches:
       only:
-        - /release/
+        - /^release/
 
     configuration:
       - Release
