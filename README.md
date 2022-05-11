@@ -39,12 +39,12 @@ The following files contain variables `appveyor.yml`, `src/AssemblyInfo.cs` & `s
 ### Solution & Projects
 
 First add a solution in the repository root with
-```ps
+```pwsh
 dotnet new sln -n "Your"
 ```
 
 Add a project in `src/` with
-```ps
+```pwsh
 dotnet new classlib -n "Your.Project"
 ```
 and define the missing nuget and assembly information, see [more on project files](#csproj).
@@ -52,7 +52,7 @@ and define the missing nuget and assembly information, see [more on project file
 ### Test projects
 
 Add a test project in `tests/` with
-```ps
+```pwsh
 dotnet new classlib -n "Your.Project.Tests"
 ```
 .
