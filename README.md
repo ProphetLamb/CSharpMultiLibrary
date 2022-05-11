@@ -44,7 +44,6 @@ dotnet new sln -n "Your"
 ```
 
 Add a project in `src/` with
-
 ```ps
 dotnet new classlib -n "Your.Project"
 ```
@@ -54,9 +53,11 @@ and define the missing nuget and assembly information, see [more on project file
 
 Add a test project in `tests/` with
 ```ps
-dotnet new nunit -n "Your
-.Project.Tests"
+dotnet new classlib -n "Your.Project.Tests"
 ```
+.
+
+Testadapters similar packages are included in [Build.props](tests/Directory.Build.props).
 
 ## Files
 
@@ -102,3 +103,5 @@ The [EditorConfig](https://editorconfig.org) is a bit opinionated, so you might 
 - `RootNamespace` by default is equal to the project file name, only define it if the namespace is different.
 
 Take a look at the [example project](src/Your.Project/Your.Project.csproj) and [source generator example](src/Your.Generator/Your.Generator.csproj).
+
+Tags from the [Directory.Build.props](src/Directory.Build.props) are included in every `.csproj` in sub-directories. Duplicates are overwritten.
